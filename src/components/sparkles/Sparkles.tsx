@@ -51,7 +51,6 @@ const Wrapper = styled.span`
 const ChildWrapper = styled.span`
   position: relative;
   z-index: 1;
-  font-weight: bold;
 `
 
 export default Sparkles

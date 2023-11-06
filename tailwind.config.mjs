@@ -6,8 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Ashington', defaultTheme.fontFamily.sans],
-        montserrat: ['Montserrat', defaultTheme.fontFamily.sans]
+        display: ['Ashington', defaultTheme.fontFamily.sans]
       }
     }
   },
