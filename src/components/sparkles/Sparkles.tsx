@@ -45,14 +45,4 @@ const Sparkles = ({ children, ...delegated }: Props) => {
   )
 }
 
-const Wrapper = styled.span`
-  display: inline-block;
-  position: relative;
-`
-
-const ChildWrapper = styled.span`
-  position: relative;
-  z-index: 1;
-`
-
 export default Sparkles
