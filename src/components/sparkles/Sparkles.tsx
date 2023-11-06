@@ -27,6 +27,7 @@ const Sparkles = ({ children, ...delegated }: Props) => {
     500,
     1000
   )
+
   return (
     <span className='inline-block relative w-full' {...delegated}>
       {sparkles.map((sparkle: Sparkle) => (
