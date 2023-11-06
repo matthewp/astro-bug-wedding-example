@@ -22,7 +22,7 @@ const generateSparkle = (color = DEFAULT_COLOR) => {
     style: {
       top: random(0, 100) + '%',
       left: random(0, 100) + '%',
-      zIndex: 99
+      zIndex: 1
     }
   }
 

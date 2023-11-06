@@ -29,7 +29,7 @@ const Sparkles = ({ children, ...delegated }: Props) => {
     1000
   )
   return (
-    <Wrapper {...delegated}>
+    <span className='inline-block relative w-full' {...delegated}>
       {sparkles.map((sparkle: Sparkle) => (
         <SparkleInstance
           key={sparkle.id}
@@ -38,8 +38,10 @@ const Sparkles = ({ children, ...delegated }: Props) => {
           style={sparkle.style}
         />
       ))}
-      <ChildWrapper>{children}</ChildWrapper>
-    </Wrapper>
+      <span className='flex flex-col z-[1] justify-center items-center'>
+        {children}
+      </span>
+    </span>
   )
 }
 

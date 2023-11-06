@@ -7,34 +7,44 @@ import { GROOVY_SIZES } from '../utilities/constants'
 
 <Layout title="George & Izzy's Wedding 2024">
   <main class='flex flex-col justify-center items-center h-screen'>
-    <Sparkles client:load>
-      <div class='flex flex-col items-start -ml-8'>
-        <div class='flex'>
+    <div class='flex justify-center items-center w-2/3'>
+      <Sparkles client:load>
+        <div class='flex flex-col items-start -ml-8'>
+          <div class='flex'>
+            <GroovyText
+              text='George'
+              size={GROOVY_SIZES.LARGE}
+              textSize='text-9xl'
+            />
+          </div>
+          <div class='flex self-end -mr-8 -mt-8'>
+            <GroovyText
+              text='&'
+              size={GROOVY_SIZES.LARGE}
+              textSize='text-6xl'
+            />
+          </div>
+          <div class='flex ml-10 -mt-4'>
+            <GroovyText
+              text='Izzy'
+              size={GROOVY_SIZES.LARGE}
+              textSize='text-9xl'
+            />
+          </div>
+        </div>
+        <p
+          class='text-center text-rose-300 text-2xl mt-8 tracking-[0.25em] z-50'
+        >
+          SAVE THE DATE
+        </p>
+        <div class='flex justify-center mt-8'>
           <GroovyText
-            text='George'
-            size={GROOVY_SIZES.LARGE}
-            textSize='text-9xl'
+            text='15.06.2024'
+            size={GROOVY_SIZES.SMALL}
+            textSize='text-3xl'
           />
         </div>
-        <div class='flex self-end -mr-8 -mt-8'>
-          <GroovyText text='&' size={GROOVY_SIZES.LARGE} textSize='text-6xl' />
-        </div>
-        <div class='flex ml-10 -mt-4'>
-          <GroovyText
-            text='Izzy'
-            size={GROOVY_SIZES.LARGE}
-            textSize='text-9xl'
-          />
-        </div>
-      </div>
-    </Sparkles>
-    <p class='text-rose-300 text-2xl mt-8 tracking-[0.25em]'>SAVE THE DATE</p>
-    <div class='flex mt-8'>
-      <GroovyText
-        text='15.06.2024'
-        size={GROOVY_SIZES.SMALL}
-        textSize='text-3xl'
-      />
+      </Sparkles>
     </div>
   </main>
 </Layout>

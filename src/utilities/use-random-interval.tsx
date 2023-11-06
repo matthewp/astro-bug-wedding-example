@@ -1,12 +1,6 @@
 import React from 'react'
 import random from './random'
 
-interface Props {
-  callback: any
-  minDelay: number
-  maxDelay: number
-}
-
 const useRandomInterval = (
   callback: any,
   minDelay: number,
