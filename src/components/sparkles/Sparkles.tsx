@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import SparkleInstance from './SparkleInstance'
 import generateSparkle, { type Sparkle } from '../../utilities/generate-sparkle'
 import useRandomInterval from '../../utilities/use-random-interval'
