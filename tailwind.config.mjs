@@ -5,9 +5,6 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
-      fontFamily: {
-        display: ['Ashington', defaultTheme.fontFamily.sans]
-      },
       animation: {
         'sparkle-spin': 'spinning 2000ms linear',
         'sparkle-come-in-out': 'comeInOut 1400ms forwards'
