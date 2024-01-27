@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SparkleInstance from './SparkleInstance'
 import generateSparkle, { type Sparkle } from '../../utilities/generate-sparkle'
 import useRandomInterval from '../../utilities/use-random-interval'
 import range from '../../utilities/range'
+import random from '../../utilities/random'
 
 interface Props {
   children: React.ReactNode
 }
 
+const DEFAULT_SPARKLE_SIZE = 50
+
 const Sparkles = ({ children, ...delegated }: Props) => {
-  const [sparkles, setSparkles] = React.useState(() => {
-    return range(3).map(() => generateSparkle())
+  const [sparkles, setSparkles] = useState(() => {
+    // Initialize sparkles with a default size
+    return range(3).map(() => ({
+      ...generateSparkle(),
+      size: DEFAULT_SPARKLE_SIZE, // Use the default size
+      style: { ...generateSparkle().style, top: '50%', left: '50%' }
+    }))
   })
 
   useRandomInterval(
@@ -27,6 +35,21 @@ const Sparkles = ({ children, ...delegated }: Props) => {
     500,
     1000
   )
+
+  useEffect(() => {
+    // Only adjust sizes and positions on the client side
+    setSparkles(
+      sparkles.map((sparkle) => ({
+        ...sparkle,
+        size: random(30, 80), // Now apply the random size
+        style: {
+          ...sparkle.style,
+          top: random(0, 100) + '%',
+          left: random(0, 100) + '%'
+        }
+      }))
+    )
+  }, [])
 
   return (
     <span className='inline-block relative w-full' {...delegated}>
