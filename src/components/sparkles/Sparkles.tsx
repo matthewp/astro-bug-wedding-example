@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import SparkleInstance from './SparkleInstance'
-import generateSparkle, { type Sparkle } from '../../utilities/generate-sparkle'
-import useRandomInterval from '../../utilities/use-random-interval'
-import range from '../../utilities/range'
-import random from '../../utilities/random'
+import React, { useEffect, useState } from 'react';
+import SparkleInstance from './SparkleInstance';
+import generateSparkle, {
+  type Sparkle
+} from '../../utilities/generate-sparkle';
+import useRandomInterval from '../../utilities/use-random-interval';
+import range from '../../utilities/range';
+import random from '../../utilities/random';
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-const DEFAULT_SPARKLE_SIZE = 50
+const DEFAULT_SPARKLE_SIZE = 50;
 
 const Sparkles = ({ children, ...delegated }: Props) => {
   const [sparkles, setSparkles] = useState(() => {
@@ -18,23 +20,23 @@ const Sparkles = ({ children, ...delegated }: Props) => {
       ...generateSparkle(),
       size: DEFAULT_SPARKLE_SIZE, // Use the default size
       style: { ...generateSparkle().style, top: '50%', left: '50%' }
-    }))
-  })
+    }));
+  });
 
   useRandomInterval(
     () => {
-      const sparkle = generateSparkle()
-      const now = Date.now()
+      const sparkle = generateSparkle();
+      const now = Date.now();
       const nextSparkles = sparkles.filter((sp: Sparkle) => {
-        const delta = now - sp.createdAt
-        return delta < 750
-      })
-      nextSparkles.push(sparkle)
-      setSparkles(nextSparkles)
+        const delta = now - sp.createdAt;
+        return delta < 750;
+      });
+      nextSparkles.push(sparkle);
+      setSparkles(nextSparkles);
     },
     500,
     1000
-  )
+  );
 
   useEffect(() => {
     // Only adjust sizes and positions on the client side
@@ -48,8 +50,8 @@ const Sparkles = ({ children, ...delegated }: Props) => {
           left: random(0, 100) + '%'
         }
       }))
-    )
-  }, [])
+    );
+  }, []);
 
   return (
     <span className='inline-block relative w-full' {...delegated}>
@@ -65,7 +67,7 @@ const Sparkles = ({ children, ...delegated }: Props) => {
         {children}
       </span>
     </span>
-  )
-}
+  );
+};
 
-export default Sparkles
+export default Sparkles;

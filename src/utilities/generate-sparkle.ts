@@ -1,16 +1,16 @@
-import random from './random'
+import random from './random';
 
-const DEFAULT_COLOR = '#e11d48'
+const DEFAULT_COLOR = '#e11d48';
 
 export interface Sparkle {
-  id: string
-  createdAt: number
-  color: string
-  size: number
+  id: string;
+  createdAt: number;
+  color: string;
+  size: number;
   style: {
-    top: string
-    left: string
-  }
+    top: string;
+    left: string;
+  };
 }
 
 const generateSparkle = (color = DEFAULT_COLOR) => {
@@ -24,9 +24,9 @@ const generateSparkle = (color = DEFAULT_COLOR) => {
       left: random(0, 100) + '%',
       zIndex: 1
     }
-  }
+  };
 
-  return sparkle
-}
+  return sparkle;
+};
 
-export default generateSparkle
+export default generateSparkle;
