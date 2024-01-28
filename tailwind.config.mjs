@@ -12,7 +12,8 @@ export default {
         'custom-red': '#FF0000'
       },
       fontFamily: {
-        'rubik-mono': ['Rubik Mono One', 'sans-serif']
+        'rubik-mono': ['Rubik Mono One', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif']
       },
       keyframes: {
         spinning: {

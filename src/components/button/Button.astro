@@ -1,7 +1,27 @@
 ---
-const { href, text } = Astro.props
+const { href, text, classes } = Astro.props;
 
-const classes = "text-custom-red bg-custom-pink text-3xl py-3 px-16 font-mono border-4 border-white rounded-lg font-rubik-mono shadow"
+const allClasses = [
+  'text-custom-red',
+  'bg-custom-pink',
+  'text-3xl',
+  'py-3',
+  'px-16',
+  'border-4',
+  'border-white',
+  'rounded-lg',
+  'font-rubik-mono',
+  'shadow',
+  classes
+].join(' ');
 ---
 
-{href ? <a href={href} class={classes}>{text}</a> : <button classes={classes}>{text}</button>}
+{
+  href ? (
+    <a href={href} class={allClasses}>
+      {text}
+    </a>
+  ) : (
+    <button class={allClasses}>{text}</button>
+  )
+}
