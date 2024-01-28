@@ -1,0 +1,7 @@
+---
+const { href, text } = Astro.props
+
+const classes = "text-custom-red bg-custom-pink text-3xl py-3 px-16 font-mono border-4 border-white rounded-lg font-rubik-mono shadow"
+---
+
+{href ? <a href={href} class={classes}>{text}</a> : <button classes={classes}>{text}</button>}

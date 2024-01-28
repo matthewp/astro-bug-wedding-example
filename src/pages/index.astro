@@ -3,11 +3,12 @@ import Layout from '../layouts/Layout.astro'
 import GeorgeAndIzzy from '../components/groovy-text/GeorgeAndIzzy.astro'
 import Date from '../components/groovy-text/Date.astro'
 import Sparkles from '../components/sparkles/Sparkles.tsx'
+import Button from '../components/button/Button.astro'
 ---
 
 <Layout title="George & Izzy's Wedding 2024">
   <main class='flex flex-col justify-center items-center h-screen'>
-    <div class='flex justify-center items-center w-2/3'>
+    <div class='flex justify-center items-center w-2/3 mb-20'>
       <Sparkles client:load>
         <div class='flex flex-col items-start -ml-8 z-50'>
           <GeorgeAndIzzy />
@@ -23,5 +24,6 @@ import Sparkles from '../components/sparkles/Sparkles.tsx'
         </div>
       </Sparkles>
     </div>
+    <Button href='/home/' text='ENTER' />
   </main>
 </Layout>
