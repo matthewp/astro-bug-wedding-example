@@ -1,12 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Underline from '../components/underline/Underline.astro';
+import Polaroid from '../components/polaroid/Polaroid.astro';
 import Button from '../components/button/Button.astro';
+import gAndI from '../assets/g_and_i.jpeg';
 ---
 
 <Layout title="George & Izzy's Wedding 2024">
-  <div class='flex flex-col items-center text-white'>
-    <div class='flex'>
+  <div
+    class='flex flex-col items-center text-white m-auto w-2/3 justify-center'
+  >
+    <Polaroid src={gAndI} />
+    <div class='flex mt-8'>
       <span class='font-montserrat text-2xl'>
         <div class='flex flex-col'>
           <strong>Let us know</strong>
