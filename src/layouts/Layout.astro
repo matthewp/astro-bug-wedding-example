@@ -1,9 +1,12 @@
 ---
+import Nav from '../components/nav/Nav.astro';
+
 interface Props {
   title: string;
+  noNav?: boolean;
 }
 
-const { title } = Astro.props;
+const { noNav, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,6 +29,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    {!noNav && <Nav />}
     <slot />
   </body>
 </html>
