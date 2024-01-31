@@ -4,7 +4,9 @@ import Underline from '../underline/Underline.astro';
 const { href } = Astro.props;
 const { pathname } = Astro.url;
 
-const underlineLink = href === pathname && href !== '/home';
+const pattern = new RegExp(`^${href}/?$`);
+const underlineLink = pattern.test(pathname) && href !== '/home';
+console.log(pattern.test(pathname));
 ---
 
 <a
