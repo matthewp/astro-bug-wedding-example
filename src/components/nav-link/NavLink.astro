@@ -6,7 +6,6 @@ const { pathname } = Astro.url;
 
 const pattern = new RegExp(`^${href}/?$`);
 const underlineLink = pattern.test(pathname) && href !== '/home';
-console.log(pattern.test(pathname));
 ---
 
 <a
