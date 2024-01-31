@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Underline from '../components/underline/Underline.astro';
 import Polaroid from '../components/polaroid/Polaroid.astro';
 import Button from '../components/button/Button.astro';
+import Divider from '../components/divider/Divider.astro';
 import gAndI from '../assets/g_and_i.jpeg';
 ---
 
@@ -13,17 +14,20 @@ import gAndI from '../assets/g_and_i.jpeg';
     <div class='w-1/2'>
       <Polaroid src={gAndI} />
     </div>
+    <Divider />
     <!-- <p class='text-3xl mt-12'>🪩</p>
     <div class='flex'>
       <div class='text-5xl mt-2 animate-wiggle'>💃</div>
       <div class='text-5xl mt-2 animate-wiggle-delay'>🕺</div>
     </div> -->
+    <div class='text-5xl mb-16'>💒</div>
     <p
-      class='text-center text-white text-2xl mt-4 tracking-[0.25em] z-50 font-montserrat'
+      class='text-center text-white text-2xl tracking-[0.25em] z-50 font-montserrat'
     >
-      THE GRANGE · ARLESFORD · HAMPSHIRE
+      THE GRANGE · HAMPSHIRE
     </p>
-    <div class='flex mt-16'>
+    <Divider />
+    <div class='flex'>
       <span class='font-montserrat text-2xl'>
         <div class='flex flex-col'>
           <strong>Let us know</strong>
