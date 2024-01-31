@@ -1,12 +1,49 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Polaroid from '../components/polaroid/Polaroid.astro';
-import theGrange from '../assets/grange.jpeg';
+import theGrange from '../assets/grange.webp';
+import Divider from '../components/divider/Divider.astro';
+import What3Words from '../components/what3words/What3Words.astro';
+import Heading from '../components/heading/Heading.astro';
+import hideThePain from '../assets/hide_the_pain.jpeg';
 ---
 
 <Layout title="George & Izzy's Wedding 2024">
-  <div class='flex flex-col w-2/3 m-auto'>
-    <Polaroid src={theGrange} text='The Grange' />
+  <div class='flex flex-col items-center w-2/3 m-auto'>
+    <div class='w-1/2'>
+      <Polaroid src={theGrange} text='The Grange' />
+    </div>
+    <Divider />
+  </div>
+  <div class='flex justify-center w-4/5 m-auto'>
+    <iframe
+      width='100%'
+      height='600'
+      style='border:0'
+      loading='lazy'
+      allowfullscreen
+      src=`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhUWuX9kWdEgRq2FvBbG-GJY&key=${import.meta.env.MAPS_API_KEY}`
+    ></iframe>
+  </div>
+  <div class='flex flex-col items-center w-2/3 m-auto mt-24'>
+    <div
+      class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em]'
+    >
+      <p class='text-5xl mb-8'>📍</p>
+      <p>THE GRANGE AT NORTHINGTON</p>
+      <p>ARLESFORD</p>
+      <p>HAMPSHIRE</p>
+      <p class='mb-24'>SO24 9TG</p>
+      <What3Words />
+      <p class='mt-8'>///backhand.rooster.rules</p>
+    </div>
+    <Divider />
+    <Heading heading='🏩' text='WHERE TO STAY' />
+    <p class='font-montserrat text-2xl text-white mt-12'>
+      Below are some nearby hotels recommended by the venue:
+    </p>
+    <div class='w-1/2 mt-12'>
+      <Polaroid src={hideThePain} text='Working on it!' />
+    </div>
   </div>
 </Layout>

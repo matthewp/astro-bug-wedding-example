@@ -1,7 +1,22 @@
 ---
-const { href, text } = Astro.props;
+import Underline from '../underline/Underline.astro';
+
+const { href } = Astro.props;
+const { pathname } = Astro.url;
+
+const underlineLink = href === pathname && href !== '/home';
 ---
 
-<a class='font-montserrat text-white text-l tracking-[0.25em]' href={href}>
+<a
+  class='font-montserrat text-white text-l tracking-[0.25em] relative flex justify-center items-center'
+  href={href}
+>
   <slot />
+  {
+    underlineLink && (
+      <div class='absolute bottom-0 left-1/4 right-0'>
+        <Underline classes='w-2/3' />
+      </div>
+    )
+  }
 </a>
