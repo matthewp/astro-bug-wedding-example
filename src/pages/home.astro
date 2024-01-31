@@ -5,6 +5,7 @@ import Polaroid from '../components/polaroid/Polaroid.astro';
 import Button from '../components/button/Button.astro';
 import Divider from '../components/divider/Divider.astro';
 import gAndI from '../assets/g_and_i.jpeg';
+import Date from '../components/groovy-text/Date.astro';
 ---
 
 <Layout title="George & Izzy's Wedding 2024">
@@ -14,18 +15,18 @@ import gAndI from '../assets/g_and_i.jpeg';
     <div class='w-1/2'>
       <Polaroid src={gAndI} />
     </div>
-    <Divider />
     <!-- <p class='text-3xl mt-12'>🪩</p>
     <div class='flex'>
       <div class='text-5xl mt-2 animate-wiggle'>💃</div>
       <div class='text-5xl mt-2 animate-wiggle-delay'>🕺</div>
     </div> -->
-    <div class='text-5xl mb-16'>💒</div>
+    <div class='text-5xl my-12'>💒</div>
     <p
-      class='text-center text-white text-2xl tracking-[0.25em] font-montserrat'
+      class='text-center text-white text-2xl tracking-[0.25em] font-montserrat mb-12'
     >
       THE GRANGE · HAMPSHIRE
     </p>
+    <Date />
     <Divider />
     <div class='flex'>
       <span class='font-montserrat text-2xl'>

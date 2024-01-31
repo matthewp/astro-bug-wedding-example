@@ -1,0 +1,13 @@
+---
+import Heading from '../heading/Heading.astro';
+
+const { time, text, emoji } = Astro.props;
+---
+
+<div class='flex flex-col font-montserrat text-white text-center'>
+  <p class='text-xl tracking-[0.25em] font-bold mb-8'>
+    {time}
+  </p>
+  <p class='text-5xl mb-8'>{emoji}</p>
+  <p>{text}</p>
+</div>
