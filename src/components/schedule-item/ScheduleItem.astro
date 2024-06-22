@@ -8,6 +8,18 @@ const { time, text, emoji } = Astro.props;
   <p class='text-xl tracking-[0.25em] font-bold mb-8'>
     {time}
   </p>
-  <p class='text-5xl mb-8'>{emoji}</p>
+  {
+    text === 'PARTY STARTS' ? (
+      <div class='mb-8'>
+        <p class='text-3xl'>🪩</p>
+        <div class='flex'>
+          <div class='text-5xl mt-2 animate-wiggle'>💃</div>
+          <div class='text-5xl mt-2 animate-wiggle-delay'>🕺</div>
+        </div>
+      </div>
+    ) : (
+      <p class='text-5xl mb-8'>{emoji}</p>
+    )
+  }
   <p>{text}</p>
 </div>

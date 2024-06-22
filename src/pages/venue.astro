@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Polaroid from '../components/polaroid/Polaroid.astro';
-import theGrange from '../assets/grange.webp';
 import Divider from '../components/divider/Divider.astro';
 import What3Words from '../components/what3words/What3Words.astro';
 import Heading from '../components/heading/Heading.astro';
@@ -11,7 +10,7 @@ import hideThePain from '../assets/hide_the_pain.jpeg';
 <Layout title="George & Izzy's Wedding 2024">
   <div class='flex flex-col items-center w-2/3 m-auto'>
     <div class='w-1/2'>
-      <Polaroid src={theGrange} text='The Grange' />
+      <Polaroid isVideo src="https://www.bignorpark.co.uk/wp-content/uploads/2022/05/Bignorpark-Video-A-001_720.mp4" text='Bignor Park' />
     </div>
     <Divider />
   </div>
@@ -22,7 +21,7 @@ import hideThePain from '../assets/hide_the_pain.jpeg';
       style='border:0'
       loading='lazy'
       allowfullscreen
-      src=`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhUWuX9kWdEgRq2FvBbG-GJY&key=${import.meta.env.MAPS_API_KEY}`
+      src=`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJC_h1lC23dUgRaW0Yqx77OXo&key=${import.meta.env.MAPS_API_KEY}`
     ></iframe>
   </div>
   <div class='flex flex-col items-center w-2/3 m-auto mt-24'>
@@ -30,12 +29,13 @@ import hideThePain from '../assets/hide_the_pain.jpeg';
       class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em]'
     >
       <p class='text-5xl mb-8'>📍</p>
-      <p>THE GRANGE AT NORTHINGTON</p>
-      <p>ARLESFORD</p>
-      <p>HAMPSHIRE</p>
-      <p class='mb-24'>SO24 9TG</p>
+      <p>BIGNOR PARK HOUSE</p>
+      <p>BIGNOR PARK</p>
+      <p>PULBOROUGH</p>
+      <p>WEST SUSSEX</p>
+      <p class='mb-24'>RH20 1HG</p>
       <What3Words />
-      <p class='mt-8'>///backhand.rooster.rules</p>
+      <p class='mt-8'>///diner.snapper.releasing</p>
     </div>
     <Divider />
     <Heading heading='🏩' text='WHERE TO STAY' />
