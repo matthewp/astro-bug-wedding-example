@@ -1,6 +1,6 @@
 import random from './random';
 
-const DEFAULT_COLOR = '#e11d48';
+const DEFAULT_COLOR = '#FFFFFF';
 
 export interface Sparkle {
   id: string;
