@@ -12,13 +12,14 @@ export default {
       },
       colors: {
         'custom-pink': '#FFB0B0',
+        'custom-green': '#005E4A',
         'custom-red': '#FF0000',
         'custom-bg-pink': '#FFB5B1',
         'custom-green': '#005E4A'
       },
       fontFamily: {
-        'rubik-mono': ['Rubik Mono One', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
+        permanentMarker: ['Permanent Marker', 'sans-serif'],
         sacramento: ['Sacramento', 'sans-serif'],
         balmy: ['Balmymorningblock', 'sans-serif'],
         balmyScript: ['Balmymorningscript', 'sans-serif']

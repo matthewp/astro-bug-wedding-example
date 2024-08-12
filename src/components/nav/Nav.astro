@@ -1,12 +1,22 @@
 ---
 import NavLink from '../nav-link/NavLink.astro';
-import GeorgeAndIzzyMini from '../groovy-text/GeorgeAndIzzyMini.astro';
 ---
 
 <nav class='grid grid-cols-5 mt-4 mb-16 px-12'>
   <NavLink href='/venue'>VENUE</NavLink>
   <NavLink href='/schedule'>SCHEDULE</NavLink>
-  <NavLink href='/home'><GeorgeAndIzzyMini /></NavLink>
+  <NavLink href='/home'>
+    <div>
+      <div class='text-custom-green font-balmy text-7xl tracking-normal'>
+        George
+      </div>
+      <div class='flex items-start justify-end -m-2.5'>
+        <span class='font-white font-sacramento text-7xl mr-4'>&</span><span
+          class='text-custom-green font-balmy text-7xl tracking-normal'
+          >Izzy</span>
+      </div>
+    </div>
+  </NavLink>
   <NavLink href='/registry'>GIFT REGISTRY</NavLink>
   <NavLink href='/faq'>FAQ</NavLink>
 </nav>

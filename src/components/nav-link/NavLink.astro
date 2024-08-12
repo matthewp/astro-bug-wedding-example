@@ -1,5 +1,5 @@
 ---
-import Underline from '../underline/Underline.astro';
+import Divider from '../divider/Divider.astro';
 
 const { href } = Astro.props;
 const { pathname } = Astro.url;
@@ -15,8 +15,8 @@ const underlineLink = pattern.test(pathname) && href !== '/home';
   <slot />
   {
     underlineLink && (
-      <div class='absolute bottom-0 left-1/4 right-0'>
-        <Underline classes='w-2/3' />
+      <div class='absolute bottom-2'>
+        <Divider classes='w-6/12 m-auto' color="#005E4A"/>
       </div>
     )
   }
