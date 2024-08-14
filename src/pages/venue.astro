@@ -4,13 +4,137 @@ import Polaroid from '../components/polaroid/Polaroid.astro';
 import Divider from '../components/divider/Divider.astro';
 import What3Words from '../components/what3words/What3Words.astro';
 import Heading from '../components/heading/Heading.astro';
-import hideThePain from '../assets/hide_the_pain.jpeg';
+import Address from '../components/address/Address.astro';
+
+const hotels = [
+  {
+    name: 'CHEQUERS HOTEL',
+    distance: '4.8 MILES',
+    journey: '10 MINS',
+    link: 'https://www.chequershotelpulborough.co.uk/'
+  },
+  {
+    name: 'THE ANGEL',
+    distance: '5.7 MILES',
+    journey: '11 MINS',
+    link: 'https://angelinnpetworth.co.uk/'
+  },
+  {
+    name: 'AMBERLEY CASTLE',
+    distance: '6.8 MILES',
+    journey: '13 MINS',
+    link: 'https://www.amberleycastle.co.uk/'
+  },
+  {
+    name: 'THE TOWN HOUSE',
+    distance: '7.6 MILES',
+    journey: '14 MINS',
+    link: 'https://thetownhouse.co.uk/'
+  },
+  {
+    name: 'NORFOLK ARMS HOTEL',
+    distance: '7.7 MILES',
+    journey: '14 MINS',
+    link: 'https://www.norfolkarmsarundel.com/'
+  },
+  {
+    name: 'PARK HOUSE HOTEL',
+    distance: '11.7 MILES',
+    journey: '21 MINS',
+    link: 'https://parkhousehotel.com/'
+  },
+  {
+    name: 'THE SPREAD EAGLE',
+    distance: '11.7 MILES',
+    journey: '21 MINS',
+    link: 'https://www.hshotels.co.uk/'
+  },
+  {
+    name: 'THE GOODWOOD HOTEL',
+    distance: '12.1 MILES',
+    journey: '22 MINS',
+    link: 'https://www.goodwood.com/'
+  }
+];
+
+const bAndBs = [
+  {
+    name: 'BEACON LODGE B&B',
+    distance: '1.7 MILES',
+    journey: '4 MINS',
+    link: 'https://www.beaconlodge.co.uk/'
+  },
+  {
+    name: 'BANKYWOOD B&B',
+    distance: '2.5 MILES',
+    journey: '5 MINS',
+    link: 'http://www.bankywood.net/'
+  },
+  {
+    name: 'CASTLE COTTAGE B&B',
+    distance: '2.5 MILES',
+    journey: '6 MINS',
+    link: 'https://www.castlecottage.info/'
+  },
+  {
+    name: 'THE WHITE HORSE INN',
+    distance: '3.7 MILES',
+    journey: '8 MINS',
+    link: 'https://www.whitehorseinn-sutton.co.uk/'
+  },
+  {
+    name: 'THE OLD RAILWAY STATION',
+    distance: '4 MILES',
+    journey: '9 MINS',
+    link: 'https://www.old-station.co.uk/'
+  },
+  {
+    name: 'TOAD HALL B&B',
+    distance: '4 MILES',
+    journey: '9 MINS',
+    link: 'http://www.toadhallduncton.co.uk/'
+  },
+  {
+    name: 'BADGERS',
+    distance: '4 MILES',
+    journey: '9 MINS',
+    link: 'https://badgerspetworth.co.uk/'
+  },
+  {
+    name: 'THE FORESTERS ARMS PUB',
+    distance: '6.2 MILES',
+    journey: '13 MINS',
+    link: 'https://forestersarms-pub.co.uk/'
+  },
+  {
+    name: 'HORSE GUARDS INN PUB',
+    distance: '6.3 MILES',
+    journey: '13 MINS',
+    link: 'https://www.thehorseguardsinn.co.uk/'
+  },
+  {
+    name: 'BROOK BARN',
+    distance: '6.4 MILES',
+    journey: '14 MINS',
+    link: 'http://www.brookbarn-graffham.co.uk/'
+  },
+  {
+    name: 'THE HALFWAY BRIDGE PUB',
+    distance: '8.3 MILES',
+    journey: '16 MINS',
+    link: 'https://www.halfwaybridge.co.uk/'
+  }
+];
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class='flex flex-col items-center w-2/3 m-auto'>
-    <div class='w-1/2'>
-      <Polaroid isVideo src="https://www.bignorpark.co.uk/wp-content/uploads/2022/05/Bignorpark-Video-A-001_720.mp4" text='Bignor Park' />
+    <div class='w-full'>
+      <Polaroid
+        isVideo
+        src='https://www.bignorpark.co.uk/wp-content/uploads/2022/05/Bignorpark-Video-A-001_720.mp4'
+        text='Bignor Park'
+      />
     </div>
     <Divider />
   </div>
@@ -25,24 +149,58 @@ import hideThePain from '../assets/hide_the_pain.jpeg';
     ></iframe>
   </div>
   <div class='flex flex-col items-center w-2/3 m-auto mt-24'>
+    <Address />
     <div
-      class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold'
+      class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold mt-24'
     >
-      <p class='text-5xl mb-8'>📍</p>
-      <p>BIGNOR PARK</p>
-      <p>PULBOROUGH</p>
-      <p>WEST SUSSEX</p>
-      <p class='mb-24'>RH20 1HG</p>
       <What3Words />
-      <a href="https://what3words.com/diner.snapper.releasing" target="_blank" class='mt-8'>///diner.snapper.releasing</a>
+      <a
+        href='https://what3words.com/diner.snapper.releasing'
+        target='_blank'
+        class='mt-8'>///diner.snapper.releasing</a
+      >
     </div>
     <Divider />
-    <Heading heading='🏩' text='WHERE TO STAY' />
-    <p class='font-montserrat text-2xl text-white mt-12'>
-      Below are some nearby hotels recommended by the venue:
-    </p>
-    <div class='w-1/2 mt-12'>
-      <Polaroid src={hideThePain} text='Working on it!' />
+    <Heading heading='🏩' text='where to stay' />
+    <div class='grid grid-cols-4 w-full font-montserrat mt-24 text-white gap-6'>
+      <div class='col-span-2 tracking-[0.25em] font-bold'>HOTELS</div>
+      <div class='flex justify-center'>📍</div>
+      <div class='flex justify-center'>🚕</div>
+      {
+        hotels.map((hotel) => (
+          <>
+            <div class='col-span-2 tracking-[0.25em]'>
+              <a href={hotel.link}>{hotel.name}</a>
+            </div>
+            <div class='flex justify-center tracking-[0.25em]'>
+              {hotel.distance}
+            </div>
+            <div class='flex justify-center tracking-[0.25em]'>
+              {hotel.journey}
+            </div>
+          </>
+        ))
+      }
+    </div>
+    <div class='grid grid-cols-4 w-full font-montserrat mt-24 text-white gap-6'>
+      <div class='col-span-2 tracking-[0.25em] font-bold'>B&B'S</div>
+      <div class='flex justify-center'>📍</div>
+      <div class='flex justify-center'>🚕</div>
+      {
+        bAndBs.map((bAndb) => (
+          <>
+            <div class='col-span-2 tracking-[0.25em]'>
+              <a href={bAndb.link}>{bAndb.name}</a>
+            </div>
+            <div class='flex justify-center tracking-[0.25em]'>
+              {bAndb.distance}
+            </div>
+            <div class='flex justify-center tracking-[0.25em]'>
+              {bAndb.journey}
+            </div>
+          </>
+        ))
+      }
     </div>
   </div>
 </Layout>
