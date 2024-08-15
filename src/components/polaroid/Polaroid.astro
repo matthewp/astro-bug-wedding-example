@@ -13,13 +13,17 @@ const { src, text, isVideo } = Astro.props;
         muted
         preload='auto'
         playsinline
-        class={`w-full border-white border-8 ${text ? 'border-b-0' : ''}`}
+        class={`w-full border-white border-8 max-w-xl ${
+          text ? 'border-b-0' : ''
+        }`}
       >
         <source src={src} type='video/mp4' />
       </video>
     ) : (
       <Image
-        class={`w-full border-white border-8 ${text ? 'border-b-0' : ''}`}
+        class={`w-full border-white border-8 max-w-xl ${
+          text ? 'border-b-0' : ''
+        }`}
         src={src}
         alt=''
       />
