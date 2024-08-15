@@ -128,17 +128,19 @@ const bAndBs = [
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col items-center w-2/3 m-auto'>
-    <div class='w-full'>
+  <div class='flex flex-col items-center mt-16'>
+    <div class='w-full px-3'>
       <Polaroid
         isVideo
         src='https://www.bignorpark.co.uk/wp-content/uploads/2022/05/Bignorpark-Video-A-001_720.mp4'
         text='Bignor Park'
       />
     </div>
-    <Divider />
+    <div class='px-8'>
+      <Divider />
+    </div>
   </div>
-  <div class='flex justify-center w-4/5 m-auto'>
+  <div class='flex justify-center px-3'>
     <iframe
       width='100%'
       height='600'
@@ -148,54 +150,63 @@ const bAndBs = [
       src=`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJC_h1lC23dUgRaW0Yqx77OXo&key=${import.meta.env.MAPS_API_KEY}`
     ></iframe>
   </div>
-  <div class='flex flex-col items-center w-2/3 m-auto mt-24'>
+  <div class='flex flex-col items-center px-3 mt-16'>
     <Address />
     <div
-      class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold mt-24'
+      class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold'
     >
-      <What3Words />
+      <div class='w-1/2 mt-16'>
+        <What3Words />
+      </div>
       <a
         href='https://what3words.com/diner.snapper.releasing'
         target='_blank'
-        class='mt-8'>///diner.snapper.releasing</a
-      >
+        class='mt-8 text-sm'
+        >///diner.snapper.releasing
+      </a>
     </div>
-    <Divider />
+    <div class='px-8'>
+      <Divider />
+    </div>
     <Heading heading='🏩' text='where to stay' />
-    <div class='grid grid-cols-4 w-full font-montserrat mt-24 text-white gap-6'>
-      <div class='col-span-2 tracking-[0.25em] font-bold'>HOTELS</div>
-      <div class='flex justify-center'>📍</div>
-      <div class='flex justify-center'>🚕</div>
+    <div
+      class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 text-xs'
+    >
+      <div class='col-span-2 tracking-[0.25em] font-bold text-sm'>HOTELS</div>
+      <div class='flex justify-center text-2xl'>📍</div>
+      <div class='flex justify-center text-2xl'>🚕</div>
       {
         hotels.map((hotel) => (
           <>
-            <div class='col-span-2 tracking-[0.25em]'>
+            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
               <a href={hotel.link}>{hotel.name}</a>
             </div>
-            <div class='flex justify-center tracking-[0.25em]'>
+            <div class='flex justify-center tracking-[0.25em] text-center'>
               {hotel.distance}
             </div>
-            <div class='flex justify-center tracking-[0.25em]'>
+            <div class='flex justify-center tracking-[0.25em] text-center'>
               {hotel.journey}
             </div>
           </>
         ))
       }
     </div>
-    <div class='grid grid-cols-4 w-full font-montserrat mt-24 text-white gap-6'>
-      <div class='col-span-2 tracking-[0.25em] font-bold'>B&B'S</div>
-      <div class='flex justify-center'>📍</div>
-      <div class='flex justify-center'>🚕</div>
+    <div
+      class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 text-xs'
+    >
+      <div class='col-span-2 tracking-[0.25em] font-bold text-sm'>B&B'S</div>
+      <div class='flex justify-center text-2xl'>📍</div>
+      <div class='flex justify-center text-2xl'>🚕</div>
       {
         bAndBs.map((bAndb) => (
           <>
-            <div class='col-span-2 tracking-[0.25em]'>
+            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
               <a href={bAndb.link}>{bAndb.name}</a>
             </div>
-            <div class='flex justify-center tracking-[0.25em]'>
+            <div class='flex justify-center tracking-[0.25em] text-center'>
               {bAndb.distance}
             </div>
-            <div class='flex justify-center tracking-[0.25em]'>
+            <div class='flex justify-center tracking-[0.25em] text-center'>
               {bAndb.journey}
             </div>
           </>

@@ -1,5 +1,6 @@
 ---
 import Nav from '../components/nav/Nav.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -22,73 +23,77 @@ const { noNav, title } = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Sacramento&display=swap" rel="stylesheet">
+    <link
+      href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Sacramento&display=swap'
+      rel='stylesheet'
+    />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     {!noNav && <Nav />}
     <slot />
+    <style is:global>
+      @font-face {
+        font-family: 'Balmymorningblock';
+        src: url('/src/fonts/Balmymorningblock.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Balmymorningscript';
+        src: url('/src/fonts/Balmymorningscript.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+      }
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        background-color: #ffb5b1;
+        padding-bottom: 10vh;
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+
+      #root,
+      #__next {
+        isolation: isolate;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: 'Balmymorningblock';
-    src: url('/src/fonts/Balmymorningblock.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Balmymorningscript';
-    src: url('/src/fonts/Balmymorningscript.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  * {
-    margin: 0;
-  }
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    background-color: #FFB5B1;
-    padding-bottom: 10vh;
-  }
-
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
-
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
-
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
-
-  #root,
-  #__next {
-    isolation: isolate;
-  }
-</style>
