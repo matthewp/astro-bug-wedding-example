@@ -1,11 +1,37 @@
 ---
+import Divider from '../components/divider/Divider.astro';
 import Layout from '../layouts/Layout.astro';
-import Polaroid from '../components/polaroid/Polaroid.astro';
-import hideThePain from '../assets/hide_the_pain.jpeg';
+import { getFaqs } from '../scripts/notion';
+
+const faq = await getFaqs();
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col px-3 mt-16'>
-    <Polaroid src={hideThePain} text='Working on it!' />
+  <div class='flex flex-col mt-16 lg:mt-24 font-montserrat px-8 items-center'>
+    <div class='max-w-3xl w-full'>
+      {
+        Object.keys(faq).map((key, i) => {
+          const questions = faq[key];
+          return (
+            <>
+              {i !== 0 && <Divider />}
+              <h1 class='uppercase tracking-[0.25em] font-bold text-white text-left w-full'>
+                {key}
+              </h1>
+              <div>
+                {questions.map((q) => (
+                  <details class='mt-8 cursor-pointer'>
+                    <summary class='uppercase tracking-[0.25em] text-white text-sm'>
+                      {q.question}
+                    </summary>
+                    <p class='text-white mt-4 font-bold'>{q.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </>
+          );
+        })
+      }
+    </div>
   </div>
 </Layout>

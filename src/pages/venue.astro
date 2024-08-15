@@ -172,23 +172,23 @@ const bAndBs = [
       <Heading heading='🏩' text='where to stay' />
     </div>
     <div
-      class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 text-xs lg:text-base lg:px-8'
+      class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 lg:text-base lg:px-8'
     >
-      <div class='col-span-2 tracking-[0.25em] font-bold text-sm'>HOTELS</div>
+      <div class='col-span-2 tracking-[0.25em] font-bold text-base'>HOTELS</div>
       <div class='flex justify-center text-2xl'>📍</div>
       <div class='flex justify-center text-2xl'>🚕</div>
       {
         hotels.map((hotel) => (
           <>
-            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
+            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2 text-sm'>
               <a href={hotel.link} target='_blank'>
                 {hotel.name}
               </a>
             </div>
-            <div class='flex justify-center tracking-[0.25em] text-center'>
+            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
               {hotel.distance}
             </div>
-            <div class='flex justify-center tracking-[0.25em] text-center'>
+            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
               {hotel.journey}
             </div>
           </>
@@ -198,21 +198,21 @@ const bAndBs = [
     <div
       class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 text-xs lg:text-base lg:px-8'
     >
-      <div class='col-span-2 tracking-[0.25em] font-bold text-sm'>B&B'S</div>
+      <div class='col-span-2 tracking-[0.25em] font-bold text-base'>B&B'S</div>
       <div class='flex justify-center text-2xl'>📍</div>
       <div class='flex justify-center text-2xl'>🚕</div>
       {
         bAndBs.map((bAndb) => (
           <>
-            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
+            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2 text-sm'>
               <a href={bAndb.link} target='_blank'>
                 {bAndb.name}
               </a>
             </div>
-            <div class='flex justify-center tracking-[0.25em] text-center'>
+            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
               {bAndb.distance}
             </div>
-            <div class='flex justify-center tracking-[0.25em] text-center'>
+            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
               {bAndb.journey}
             </div>
           </>
