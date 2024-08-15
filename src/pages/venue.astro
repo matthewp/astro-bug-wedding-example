@@ -179,7 +179,7 @@ const bAndBs = [
         hotels.map((hotel) => (
           <>
             <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
-              <a href={hotel.link}>{hotel.name}</a>
+              <a href={hotel.link} target="_blank">{hotel.name}</a>
             </div>
             <div class='flex justify-center tracking-[0.25em] text-center'>
               {hotel.distance}
@@ -201,7 +201,7 @@ const bAndBs = [
         bAndBs.map((bAndb) => (
           <>
             <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
-              <a href={bAndb.link}>{bAndb.name}</a>
+              <a href={bAndb.link} target="_blank">{bAndb.name}</a>
             </div>
             <div class='flex justify-center tracking-[0.25em] text-center'>
               {bAndb.distance}
