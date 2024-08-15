@@ -2,35 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import Polaroid from '../components/polaroid/Polaroid.astro';
 import Button from '../components/button/Button.astro';
+import Date from '../components/date/Date.astro';
 import Divider from '../components/divider/Divider.astro';
 import gAndI from '../assets/g_and_i.jpeg';
+import Address from '../components/address/Address.astro';
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div
-    class='flex flex-col items-center text-white m-auto w-2/3 justify-center'
-  >
-    <div class='w-1/2'>
+  <div class='flex flex-col items-center text-white justify-center mt-16'>
+    <div class='px-3'>
       <Polaroid src={gAndI} />
     </div>
-    <div class='text-5xl my-12'>💒</div>
-    <p
-      class='text-center text-white text-2xl tracking-[0.25em] font-montserrat mb-12'
-    >
-      BIGNOR PARK · WEST SUSSEX
+    <div class='px-8'>
+      <Divider />
+    </div>
+    <div class='text-5xl'>💒</div>
+    <Date />
+    <div class='mt-16'>
+      <Address />
+    </div>
+    <div class='px-8'>
+      <Divider />
+    </div>
+    <p class='font-montserrat text-xl'>
+      <strong>Let us know</strong> if you can make it!
     </p>
-    <div class='font-balmy text-4xl text-custom-green mt-6'>
-      21.06.2025
-    </div>
-    <Divider />
-    <div class='flex'>
-      <span class='font-montserrat text-2xl'>
-        <div class='flex flex-col'>
-          <strong>Let us know</strong>
-        </div>
-      </span>
-      <span class='font-montserrat text-2xl'>&nbsp; if you can make it!</span>
-    </div>
-    <Button text='RSVP' classes='mt-20' />
+    <Button text='RSVP' classes='mt-12' />
   </div>
 </Layout>

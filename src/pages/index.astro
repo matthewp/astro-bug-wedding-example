@@ -1,6 +1,7 @@
 ---
 import Address from '../components/address/Address.astro';
 import Sparkles from '../components/sparkles/Sparkles';
+import Date from '../components/date/Date.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -391,9 +392,7 @@ import Layout from '../layouts/Layout.astro';
           <div class='min-[1330px]:mt-16 max-[1330px]:mt-64'>
             <div class='font-balmy text-9xl text-custom-green'>George</div>
             <div class='flex w-full justify-end -m-4'>
-              <div class='font-sacramento text-9xl text-white mr-8'>
-                &
-              </div>
+              <div class='font-sacramento text-9xl text-white mr-8'>&</div>
               <div class='font-balmy text-9xl text-custom-green'>Izzy</div>
             </div>
           </div>
@@ -705,14 +704,9 @@ import Layout from '../layouts/Layout.astro';
               stroke-linejoin='round'></path>
           </svg>
         </div>
-        <div class='flex flex-col text-center'>
-          <div class='font-balmyScript mt-16 text-4xl text-white'>
-            save the date
-          </div>
-          <div class='font-balmy text-4xl text-custom-green mt-6'>
-            21.06.2025
-          </div>
-        </div>
+        <div class='mt-12'>
+        <Date />
+      </div>
       </div>
 
       <div>
@@ -729,7 +723,9 @@ import Layout from '../layouts/Layout.astro';
               fill='white'></path>
           </svg>
         </div>
-        <Address />
+        <div class='mt-24'>
+          <Address />
+        </div>
       </div>
     </div>
   </main>

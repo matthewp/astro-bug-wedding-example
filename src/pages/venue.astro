@@ -129,7 +129,7 @@ const bAndBs = [
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class='flex flex-col items-center mt-16'>
-    <div class='w-full px-3'>
+    <div class='px-3'>
       <Polaroid
         isVideo
         src='https://www.bignorpark.co.uk/wp-content/uploads/2022/05/Bignorpark-Video-A-001_720.mp4'
@@ -161,14 +161,16 @@ const bAndBs = [
       <a
         href='https://what3words.com/diner.snapper.releasing'
         target='_blank'
-        class='mt-8 text-sm'
+        class='mt-8 text-sm underline underline-offset-4'
         >///diner.snapper.releasing
       </a>
     </div>
     <div class='px-8'>
       <Divider />
     </div>
-    <Heading heading='🏩' text='where to stay' />
+    <div class="text-center px-8">
+      <Heading heading='🏩' text='where to stay' />
+    </div>
     <div
       class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 text-xs'
     >
@@ -179,7 +181,9 @@ const bAndBs = [
         hotels.map((hotel) => (
           <>
             <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
-              <a href={hotel.link} target="_blank">{hotel.name}</a>
+              <a href={hotel.link} target='_blank'>
+                {hotel.name}
+              </a>
             </div>
             <div class='flex justify-center tracking-[0.25em] text-center'>
               {hotel.distance}
@@ -201,7 +205,9 @@ const bAndBs = [
         bAndBs.map((bAndb) => (
           <>
             <div class='col-span-2 tracking-[0.25em] underline underline-offset-2'>
-              <a href={bAndb.link} target="_blank">{bAndb.name}</a>
+              <a href={bAndb.link} target='_blank'>
+                {bAndb.name}
+              </a>
             </div>
             <div class='flex justify-center tracking-[0.25em] text-center'>
               {bAndb.distance}

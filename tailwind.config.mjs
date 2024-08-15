@@ -19,7 +19,6 @@ export default {
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
-        permanentMarker: ['Permanent Marker', 'sans-serif'],
         sacramento: ['Sacramento', 'sans-serif'],
         balmy: ['Balmymorningblock', 'sans-serif'],
         balmyScript: ['Balmymorningscript', 'sans-serif']

@@ -10,7 +10,7 @@ const { time, text, emoji } = Astro.props;
     text === 'PARTY STARTS' ? (
       <div class='mb-8'>
         <p class='text-3xl'>🪩</p>
-        <div class='flex'>
+        <div class='flex justify-center'>
           <div class='text-5xl mt-2 animate-wiggle'>💃</div>
           <div class='text-5xl mt-2 animate-wiggle-delay'>🕺</div>
         </div>
@@ -19,5 +19,5 @@ const { time, text, emoji } = Astro.props;
       <p class='text-5xl mb-8'>{emoji}</p>
     )
   }
-  <p>{text}</p>
+  <p class='tracking-[0.25em]'>{text}</p>
 </div>
