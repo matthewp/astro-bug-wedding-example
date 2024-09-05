@@ -8,10 +8,10 @@ import NavLink from '../nav-link/NavLink.astro';
 >
 </div>
 
-<div class='w-full mt-8 relative'>
+<div class='w-full mt-8 relative flex justify-center'>
   <button
     id='hamburgerBtn'
-    class="absolute top-4 left-6 grid grid-cols-1 w-6 z-10 after:content-[''] after:absolute after:-top-3 after:-left-3 after:-bottom-3 after:-right-3"
+    class='absolute grid grid-cols-1 w-6 z-10 top-4 left-6 md:top-8 md:left-16'
     type='button'
   >
     <div class='h-1 w-full mb-1 bg-white rounded'></div>
@@ -38,10 +38,10 @@ import NavLink from '../nav-link/NavLink.astro';
   id='mobileNav'
   class='fixed top-0 left-0 w-60 h-full pt-16 bg-custom-green z-20 -translate-x-60 transition-all duration-300'
 >
-  <NavLink href='/venue'>VENUE</NavLink>
-  <NavLink href='/schedule'>SCHEDULE</NavLink>
-  <NavLink href='/registry'>GIFT REGISTRY</NavLink>
-  <NavLink href='/faq'>FAQ</NavLink>
+  <NavLink href='/venue' className='mt-12'>VENUE</NavLink>
+  <NavLink href='/schedule' className='mt-12'>SCHEDULE</NavLink>
+  <NavLink href='/registry' className='mt-12'>GIFT REGISTRY</NavLink>
+  <NavLink href='/faq' className='mt-12'>FAQ</NavLink>
   <button
     id='closeBtn'
     class='absolute top-3 right-5 text-white text-4xl'
