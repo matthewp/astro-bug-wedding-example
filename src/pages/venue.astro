@@ -5,6 +5,7 @@ import Divider from '../components/divider/Divider.astro';
 import What3Words from '../components/what3words/What3Words.astro';
 import Heading from '../components/heading/Heading.astro';
 import Address from '../components/address/Address.astro';
+import Title from '../components/title/Title.astro';
 
 const hotels = [
   {
@@ -129,6 +130,7 @@ const bAndBs = [
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class='flex flex-col items-center mt-16 lg:mt-24'>
+    <Title text='venue' />
     <div class='px-3 lg:mb-12'>
       <Polaroid
         isVideo

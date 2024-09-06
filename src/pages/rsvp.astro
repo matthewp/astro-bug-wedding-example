@@ -1,0 +1,255 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Title from '../components/title/Title.astro';
+import Divider from '../components/divider/Divider.astro';
+import Button from '../components/button/Button.astro';
+import { submitRsvp } from '../scripts/notion';
+import type { Coming, DietaryRequirement } from '../utilities/types';
+
+let errors = { name: '', coming: '', dietary: '' };
+
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData();
+    const formData = Object.fromEntries(data);
+    const name = formData.name as string;
+    const coming = formData.coming as Coming;
+    const dietaryRequirement = formData.dietary as DietaryRequirement;
+    const allergies = formData.allergies as string;
+    const songChoice = formData.song as string;
+    const specialRequirements = formData.sos as string;
+
+    if (
+      !formData.name ||
+      typeof formData.name !== 'string' ||
+      formData.name.trim() === ''
+    ) {
+      errors.name = 'Please enter your name.';
+    }
+
+    if (!formData.coming) {
+      errors.coming = 'Please select if you can make it.';
+    }
+
+    if (!formData.dietary) {
+      errors.dietary = 'Please select your dietary requirements.';
+    }
+
+    // If no errors, save the response in Notion
+    if (!errors.name && !errors.coming && !errors.dietary) {
+      const res = await submitRsvp({
+        name,
+        coming,
+        dietaryRequirement,
+        allergies,
+        songChoice,
+        specialRequirements
+      });
+
+      const redirectPage = coming === 'Yes' ? '/yay' : '/boo';
+      return Astro.redirect(redirectPage);
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<Layout title="George & Izzy's Wedding 2025">
+  <div class='flex flex-col mt-16 lg:mt-24 font-montserrat px-8 items-center'>
+    <Title text='RSVP' />
+    <form id='rsvp' class='w-full' method='POST'>
+      <div class='flex flex-col w-full'>
+        <div class='text-center text-3xl mb-8'>🥂</div>
+        <label for='name' class='flex flex-col items-center'
+          ><div class='text-white font-bold text-base tracking-[0.25em]'>
+            YOUR NAME
+          </div>
+          <input
+            required
+            name='name'
+            id='name'
+            type='text'
+            class='mt-4 w-full text-lg font-bold px-3 py-2 rounded-lg border border-custom-green shadow placeholder-custom-green focus:outline-none focus:border-custom-green focus:ring-2 focus:ring-custom-green focus:invalid:text-pink-600 focus:invalid:border-2 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
+          />
+        </label>
+      </div>
+
+      <Divider />
+
+      <div class='flex flex-col w-full'>
+        <div class='text-center text-3xl mb-8'>🤞</div>
+        <div class='flex flex-col w-full items-center'>
+          <div class='text-white font-bold text-base tracking-[0.25em]'>
+            CAN YOU MAKE IT?
+          </div>
+          <div class='flex flex-col space-y-4 w-full mt-4'>
+            <!-- YES Option -->
+            <div class='flex items-center'>
+              <input
+                required
+                type='radio'
+                id='optionYes'
+                name='coming'
+                value='Yes'
+                class='appearance-none peer'
+                checked
+              />
+              <label
+                for='optionYes'
+                class='flex flex-1 py-4 px-2 justify-center items-center font-bold rounded-lg bg-white peer-checked:bg-custom-green peer-checked:shadow-lg transition cursor-pointer peer-checked:text-white peer-checked:border-2 border-white tracking-[0.25em] peer-invalid:border-2 peer-invalid:border-pink-500 peer-invalid:text-pink-600'
+              >
+                YES
+              </label>
+            </div>
+
+            <!-- NO Option -->
+            <div class='flex items-center'>
+              <input
+                type='radio'
+                id='optionNo'
+                name='coming'
+                value='No'
+                class='appearance-none peer'
+              />
+              <label
+                for='optionNo'
+                class='flex flex-1 py-4 px-2 justify-center items-center font-bold rounded-lg bg-white peer-checked:bg-custom-green peer-checked:shadow-lg transition cursor-pointer peer-checked:text-white peer-checked:border-2 border-white tracking-[0.25em] peer-invalid:border-2 peer-invalid:border-pink-500 peer-invalid:text-pink-600'
+              >
+                NO
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Divider />
+
+      <div class='flex flex-col w-full'>
+        <div class='text-center text-3xl mb-8'>🍝</div>
+        <div class='flex flex-col w-full items-center'>
+          <div class='text-white font-bold text-base tracking-[0.25em]'>
+            DIETARY REQUIREMENTS
+          </div>
+          <div class='flex flex-col space-y-4 w-full mt-4'>
+            <!-- NONE Option -->
+            <div class='flex items-center flex-1'>
+              <input
+                required
+                type='radio'
+                id='optionNone'
+                name='dietary'
+                value='None'
+                class='appearance-none peer'
+                checked
+              />
+              <label
+                for='optionNone'
+                class='flex flex-1 py-4 px-2 justify-center items-center font-bold rounded-lg bg-white peer-checked:bg-custom-green peer-checked:shadow-lg transition cursor-pointer peer-checked:text-white peer-checked:border-2 border-white tracking-[0.25em] peer-invalid:border-2 peer-invalid:border-pink-500 peer-invalid:text-pink-600'
+              >
+                NONE
+              </label>
+            </div>
+
+            <!-- VEGETARIAN Option -->
+            <div class='flex items-center flex-1'>
+              <input
+                type='radio'
+                id='optionVegetarian'
+                name='dietary'
+                value='Vegetarian'
+                class='appearance-none peer'
+              />
+              <label
+                for='optionVegetarian'
+                class='flex flex-1 py-4 px-2 justify-center items-center font-bold rounded-lg bg-white peer-checked:bg-custom-green peer-checked:shadow-lg transition cursor-pointer peer-checked:text-white peer-checked:border-2 border-white tracking-[0.25em] peer-invalid:border-2 peer-invalid:border-pink-500 peer-invalid:text-pink-600'
+              >
+                VEGETARIAN
+              </label>
+            </div>
+
+            <!-- VEGAN Option -->
+            <div class='flex items-center flex-1'>
+              <input
+                type='radio'
+                id='optionVegan'
+                name='dietary'
+                value='Vegan'
+                class='appearance-none peer'
+              />
+              <label
+                for='optionVegan'
+                class='flex flex-1 py-4 px-2 justify-center items-center font-bold rounded-lg bg-white peer-checked:bg-custom-green peer-checked:shadow-lg transition cursor-pointer peer-checked:text-white peer-checked:border-2 border-white tracking-[0.25em] peer-invalid:border-2 peer-invalid:border-pink-500 peer-invalid:text-pink-600'
+              >
+                VEGAN
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='flex flex-col w-full mt-10'>
+        <label for='allergies' class='flex flex-col items-center'
+          ><div class='text-white font-bold text-base tracking-[0.25em]'>
+            ALLERGIES
+          </div>
+          <div class='text-white tracking-[0.25em] text-xs mt-2 text-center'>
+            ENTER ANY FOOD ALLERGIES YOU HAVE BELOW
+          </div>
+          <input
+            name='allergies'
+            id='allergies'
+            type='text'
+            class='mt-4 w-full text-lg font-bold px-3 py-2 rounded-lg border border-custom-green shadow placeholder-custom-green focus:outline-none focus:border-custom-green focus:ring-2 focus:ring-custom-green disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none'
+          />
+        </label>
+      </div>
+
+      <Divider />
+
+      <div class='flex flex-col w-full mt-10'>
+        <div class='text-center text-3xl mb-8'>🎷</div>
+        <label for='song' class='flex flex-col items-center'
+          ><div class='text-white font-bold text-base tracking-[0.25em]'>
+            SONG CHOICE
+          </div>
+          <div class='text-white tracking-[0.25em] text-xs mt-2 text-center'>
+            WHAT’S A SONG YOU’D LOVE TO HEAR ON THE DANCEFLOOR?
+          </div>
+          <input
+            name='song'
+            id='song'
+            type='text'
+            class='mt-4 w-full text-lg font-bold px-3 py-2 rounded-lg border border-custom-green shadow placeholder-custom-green focus:outline-none focus:border-custom-green focus:ring-2 focus:ring-custom-green disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none'
+          />
+        </label>
+      </div>
+
+      <Divider />
+
+      <div class='flex flex-col w-full mt-10'>
+        <div class='text-center text-3xl mb-8'>🛟</div>
+        <label for='sos' class='flex flex-col items-center'
+          ><div class='text-white font-bold text-base tracking-[0.25em]'>
+            SPECIAL REQUIREMENTS
+          </div>
+          <div class='text-white tracking-[0.25em] text-xs mt-2 text-center'>
+            ANYTHING YOU’D LIKE US TO BE AWARE OF ON THE DAY?
+          </div>
+          <input
+            name='sos'
+            id='sos'
+            type='text'
+            class='mt-4 w-full text-lg font-bold px-3 py-2 rounded-lg border border-custom-green shadow placeholder-custom-green focus:outline-none focus:border-custom-green focus:ring-2 focus:ring-custom-green disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none'
+          />
+        </label>
+      </div>
+
+      <div class='w-full flex justify-center mt-20'>
+        <Button type='submit' text='RSVP' />
+      </div>
+    </form>
+  </div>
+</Layout>

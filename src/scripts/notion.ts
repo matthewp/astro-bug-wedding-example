@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client';
+import type { Coming, DietaryRequirement } from '../utilities/types';
 
 interface QA {
   question: string;
@@ -68,4 +69,90 @@ export async function getFaqs(): Promise<Result> {
   });
 
   return result;
+}
+
+export async function submitRsvp({
+  name,
+  coming,
+  dietaryRequirement,
+  allergies,
+  songChoice,
+  specialRequirements
+}: {
+  name: string;
+  coming: Coming;
+  dietaryRequirement: DietaryRequirement;
+  allergies: string;
+  songChoice: string;
+  specialRequirements: string;
+}) {
+  try {
+    // const page = await notion.databases.retrieve({
+    //   database_id: import.meta.env.NOTION_RSVP_DATABASE_ID
+    // });
+    // console.log(page);
+
+    // return;
+
+    const response = await notion.pages.create({
+      parent: { database_id: import.meta.env.NOTION_RSVP_DATABASE_ID },
+      properties: {
+        Name: {
+          title: [
+            {
+              text: {
+                content: name
+              }
+            }
+          ]
+        },
+        Coming: {
+          select: {
+            name: coming
+          }
+        },
+        ['Dietary Requirement']: {
+          select: {
+            name: dietaryRequirement
+          }
+        },
+        Allergies: {
+          rich_text: [
+            {
+              text: {
+                content: allergies
+              }
+            }
+          ]
+        },
+        ['Song Choice']: {
+          rich_text: [
+            {
+              text: {
+                content: songChoice
+              }
+            }
+          ]
+        },
+        ['Special Requirements']: {
+          rich_text: [
+            {
+              text: {
+                content: specialRequirements
+              }
+            }
+          ]
+        },
+        Created: {
+          date: {
+            start: new Date().toISOString()
+          }
+        }
+      }
+    });
+    return response;
+  } catch (error) {
+    console.error('Error creating page:', error);
+    throw error;
+  }
 }

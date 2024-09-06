@@ -1,5 +1,5 @@
 ---
-const { href, text, classes, onClick } = Astro.props;
+const { href, text, classes, onClick, type } = Astro.props;
 
 const allClasses = [
   'text-white',
@@ -24,6 +24,6 @@ const allClasses = [
       {text}
     </a>
   ) : (
-    <button class={allClasses} onclick={onClick}>{text}</button>
+    <button class={allClasses} onclick={onClick} type={type}>{text}</button>
   )
 }

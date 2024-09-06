@@ -1,6 +1,7 @@
 ---
 import Divider from '../components/divider/Divider.astro';
 import ScheduleItem from '../components/schedule-item/ScheduleItem.astro';
+import Title from '../components/title/Title.astro';
 import Layout from '../layouts/Layout.astro';
 
 const scheduleItems = [
@@ -18,17 +19,20 @@ const scheduleItems = [
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class='flex flex-col items-center mt-16'>
-    {
-      scheduleItems.map(({ time, text, emoji }, i) => (
-        <>
-          <ScheduleItem time={time} text={text} emoji={emoji} />
-          {i !== scheduleItems.length - 1 && (
-            <div class='px-8'>
-              <Divider />
-            </div>
-          )}
-        </>
-      ))
-    }
+    <Title text='schedule' />
+    <>
+      {
+        scheduleItems.map(({ time, text, emoji }, i) => (
+          <>
+            <ScheduleItem time={time} text={text} emoji={emoji} />
+            {i !== scheduleItems.length - 1 && (
+              <div class='px-8'>
+                <Divider />
+              </div>
+            )}
+          </>
+        ))
+      }
+    </>
   </div>
 </Layout>

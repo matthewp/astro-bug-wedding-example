@@ -1,5 +1,6 @@
 ---
 import Divider from '../components/divider/Divider.astro';
+import Title from '../components/title/Title.astro';
 import Layout from '../layouts/Layout.astro';
 import { getFaqs } from '../scripts/notion';
 
@@ -8,6 +9,7 @@ const faq = await getFaqs();
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class='flex flex-col mt-16 lg:mt-24 font-montserrat px-8 items-center'>
+    <Title text='faq' />
     <div class='max-w-3xl w-full'>
       {
         Object.keys(faq).map((key, i) => {

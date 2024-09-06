@@ -14,8 +14,7 @@ export default {
         'custom-pink': '#FFB0B0',
         'custom-green': '#005E4A',
         'custom-red': '#FF0000',
-        'custom-bg-pink': '#FFB5B1',
-        'custom-green': '#005E4A'
+        'custom-bg-pink': '#FFB5B1'
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
