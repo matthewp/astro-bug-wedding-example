@@ -46,8 +46,7 @@ if (Astro.request.method === 'POST') {
         specialRequirements
       });
 
-      const redirectPage = coming === 'Yes' ? '/yay' : '/boo';
-      return Astro.redirect(redirectPage);
+      return Astro.redirect(coming === 'Yes' ? '/yay' : '/boo');
     }
   } catch (error) {
     if (error instanceof Error) {
