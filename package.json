@@ -11,7 +11,7 @@
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
   },
   "dependencies": {
-    "@astrojs/netlify": "^5.5.1",
+    "@astrojs/netlify": "^0.0.0-netlify-bug-20240907133710",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.0",
     "@notionhq/client": "^2.2.15",
@@ -24,13 +24,13 @@
     "@astrojs/check": "^0.9.3",
     "@types/react": "^18.2.35",
     "@types/react-dom": "^18.2.14",
-    "typescript": "^5.2.2",
     "@typescript-eslint/parser": "^6.9.1",
     "eslint": "^8.53.0",
     "eslint-plugin-astro": "^0.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "prettier": "^3.0.3",
     "prettier-config-standard": "^7.0.0",
-    "prettier-plugin-astro": "^0.12.1"
+    "prettier-plugin-astro": "^0.12.1",
+    "typescript": "^5.2.2"
   }
 }
