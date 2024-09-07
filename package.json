@@ -11,7 +11,7 @@
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
   },
   "dependencies": {
-    "@astrojs/netlify": "^0.0.0-netlify-bug-20240907144446",
+    "@astrojs/netlify": "^0.0.0-netlify-bug-20240907145048",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.0",
     "@notionhq/client": "^2.2.15",
